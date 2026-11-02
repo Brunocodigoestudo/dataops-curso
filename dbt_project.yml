@@ -1,0 +1,13 @@
+name: dataops_curso
+version: "1.0.0"
+profile: dataops_curso
+
+model-paths: ["models"]
+test-paths: ["tests"]
+
+models:
+  dataops_curso:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

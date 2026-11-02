@@ -1,0 +1,9 @@
+dbt-core==1.12.6
+dbt-duckdb==1.11.1
+duckdb==2.0.0
+pytest==9.2.0
+pytest-cov==7.1.0
+ruff==0.17.3
+pre-commit==4.7.0
+PyYAML==6.0.3
+requests==2.34.2
