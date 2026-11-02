@@ -14,11 +14,14 @@ def test_remove_pedidos_cancelados():
     assert calcular_valor_total(pedidos) == []
 
 
-@pytest.mark.parametrize("qtd, preco, esperado", [
-    (1, 0.1, 0.1),
-    (3, 0.1, 0.3),      # sem o round, 3 * 0.1 daria 0.30000000000000004
-    (0, 99.9, 0.0),
-])
+@pytest.mark.parametrize(
+    "qtd, preco, esperado",
+    [
+        (1, 0.1, 0.1),
+        (3, 0.1, 0.3),  # sem o round, 3 * 0.1 daria 0.30000000000000004
+        (0, 99.9, 0.0),
+    ],
+)
 def test_valores_de_borda(qtd, preco, esperado):
     pedidos = [{"quantidade": qtd, "preco_unitario": preco, "status": "pago"}]
     assert calcular_valor_total(pedidos)[0]["valor_total"] == esperado

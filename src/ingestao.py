@@ -1,4 +1,5 @@
 """Carrega os CSVs da pasta data/ para a camada bruta (raw) do DuckDB."""
+
 import os
 
 import duckdb
