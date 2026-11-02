@@ -7,3 +7,9 @@ dataops_curso:
     ci:
       type: duckdb
       path: ci.duckdb
+    staging:
+      type: duckdb
+      path: staging.duckdb
+    production:
+      type: duckdb
+      path: production.duckdb
