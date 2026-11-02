@@ -1,0 +1,13 @@
+version: 2
+
+unit_tests:
+  - name: valor_total_ignora_cancelados
+    model: fct_pedidos
+    given:
+      - input: ref('stg_pedidos')
+        rows:
+          - {id_pedido: 1, quantidade: 2, preco_unitario: 10.0, status: 'pago'}
+          - {id_pedido: 2, quantidade: 1, preco_unitario: 5.0,  status: 'cancelado'}
+    expect:
+      rows:
+        - {id_pedido: 1, valor_total: 20.0}
