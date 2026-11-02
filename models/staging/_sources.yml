@@ -2,8 +2,12 @@ version: 2
 
 sources:
   - name: raw
+    description: Dados brutos carregados dos CSVs pelo src/ingestao.py, sem nenhuma transformação.
     schema: raw
     tables:
       - name: clientes
+        description: Cadastro de clientes da loja.
       - name: produtos
+        description: Catálogo de produtos com o preço de tabela.
       - name: pedidos
+        description: Um registro por pedido, com o preço unitário no momento da compra.

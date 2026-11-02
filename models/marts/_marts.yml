@@ -1,5 +1,14 @@
 version: 2
 
+models:
+  - name: fct_pedidos
+    description: Pedidos faturáveis com o valor total. Pedidos cancelados ficam de fora.
+    columns:
+      - name: id_pedido
+        description: Chave primária do pedido.
+      - name: valor_total
+        description: quantidade × preco_unitario, arredondado em 2 casas.
+
 unit_tests:
   - name: valor_total_ignora_cancelados
     model: fct_pedidos

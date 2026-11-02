@@ -29,6 +29,13 @@ python -m src.ingestao   # carrega os CSVs da pasta data/ no DuckDB
 dbt run                  # constrói os modelos
 ```
 
+## Documentação do time
+
+- **Modelos e linhagem:** `dbt docs generate` e depois `dbt docs serve --no-browser`. No codespace, abra a porta 8080.
+- **Quando o pipeline falhar:** [docs/runbooks/pipeline-falhou.md](docs/runbooks/pipeline-falhou.md).
+- **Decisões técnicas:** [docs/adr/](docs/adr/).
+- **Maturidade do projeto:** [docs/maturidade.md](docs/maturidade.md).
+
 ## Uma branch por aula
 
 Cada branch guarda o estado do projeto **ao final** da aula. Para acompanhar uma aula, comece pela branch da aula anterior.

@@ -2,23 +2,29 @@ version: 2
 
 models:
   - name: stg_clientes
+    description: Clientes da origem, 1:1 com raw.clientes.
     columns:
       - name: id_cliente
+        description: Chave primária do cliente.
         data_tests:
           - unique
           - not_null
   - name: stg_pedidos
+    description: Pedidos da origem com tipos padronizados e status em minúsculo.
     columns:
       - name: id_pedido
+        description: Chave primária do pedido.
         data_tests:
           - unique
           - not_null
       - name: status
+        description: Situação do pedido. Valores aceitos estão no teste accepted_values.
         data_tests:
           - accepted_values:
               arguments:
                 values: ['aberto', 'pago', 'cancelado']
       - name: id_cliente
+        description: Cliente que fez o pedido.
         data_tests:
           - relationships:
               arguments:
