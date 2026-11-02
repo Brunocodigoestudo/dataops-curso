@@ -4,4 +4,4 @@ select
     criado_em,
     round(quantidade * preco_unitario, 2) as valor_total
 from {{ ref('stg_pedidos') }}
-where status != 'cancelado'
+where status not in ('cancelado', 'estornado')
