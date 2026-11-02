@@ -1,0 +1,29 @@
+name: CI do pipeline
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_call:                 # permite que o cd.yml reaproveite este workflow
+
+jobs:
+  qualidade:
+    runs-on: ubuntu-latest
+    env:
+      DBT_PROFILES_DIR: .        # usa o profiles.yml da raiz do projeto
+      DUCKDB_PATH: ci.duckdb     # banco próprio do CI, criado do zero a cada execução
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+      - name: Lint
+        run: ruff check .
+      - name: Testes unitários e de integração
+        run: pytest --cov=src --cov-fail-under=80
+      - name: Carregar dados de exemplo
+        run: python -m src.ingestao
+      - name: Build e testes do dbt
+        run: dbt build --target ci

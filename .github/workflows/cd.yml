@@ -1,0 +1,39 @@
+name: Deploy do pipeline
+
+on:
+  push:
+    branches: [main]             # merge na main dispara o deploy
+
+jobs:
+  testes:
+    uses: ./.github/workflows/ci.yml
+
+  deploy-staging:
+    needs: testes
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: bash scripts/deploy.sh staging
+        env:
+          EXEMPLO_SECRET: ${{ secrets.EXEMPLO_SECRET }}
+
+  deploy-producao:
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    environment: production      # exige aprovação configurada no GitHub
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: bash scripts/deploy.sh production
+        env:
+          EXEMPLO_SECRET: ${{ secrets.EXEMPLO_SECRET }}
