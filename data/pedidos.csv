@@ -1,0 +1,6 @@
+id_pedido,id_cliente,id_produto,quantidade,preco_unitario,status,criado_em
+1,1,10,2,12.50,pago,2026-10-01
+2,1,11,5,3.20,pago,2026-10-02
+3,2,12,1,89.90,cancelado,2026-10-02
+4,3,10,1,12.50,aberto,2026-10-03
+5,2,11,3,3.20,pago,2026-10-04

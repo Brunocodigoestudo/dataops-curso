@@ -1,0 +1,9 @@
+dataops_curso:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: dataops.duckdb
+    ci:
+      type: duckdb
+      path: ci.duckdb
