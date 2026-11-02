@@ -15,11 +15,14 @@ Preenchida na Aula 1 e refeita na última aula. Comparar o antes e o depois é o
 
 ## Avaliação do projeto
 
-| Dimensão | Antes (Aula 1) |
-| --- | --- |
-| Versionamento | 2 · Git, commits direto na main |
-| Testes | 1 · Nenhum |
-| Deploy | 1 · Manual |
-| Infraestrutura | 1 · Nenhuma como código |
-| Observabilidade | 1 · Descobre o erro pelo usuário |
-| Colaboração | 2 · Algum README |
+| Dimensão | Antes (Aula 1) | Depois (Aula 6) |
+| --- | --- | --- |
+| Versionamento | 2 · Git, commits direto na main | 3 · Branches + PR obrigatório |
+| Testes | 1 · Nenhum | 3 · Unitários + dados no CI |
+| Deploy | 1 · Manual | 3 · CI/CD a cada merge |
+| Infraestrutura | 1 · Nenhuma como código | 1 · Sem mudança |
+| Observabilidade | 1 · Descobre o erro pelo usuário | 3 · Falha barrada no CI, com métricas DORA |
+| Colaboração | 2 · Algum README | 3 · Code review + padrões, com ADR e runbook |
+
+A infraestrutura continua no nível 1 de propósito: Terraform, deploy blue/green e
+feature flags são a próxima etapa.

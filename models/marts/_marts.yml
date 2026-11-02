@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: fct_pedidos
-    description: Pedidos faturáveis com o valor total. Pedidos cancelados ficam de fora.
+    description: Pedidos faturáveis com o valor total. Pedidos cancelados e estornados ficam de fora.
     columns:
       - name: id_pedido
         description: Chave primária do pedido.
@@ -17,6 +17,17 @@ unit_tests:
         rows:
           - {id_pedido: 1, quantidade: 2, preco_unitario: 10.0, status: 'pago'}
           - {id_pedido: 2, quantidade: 1, preco_unitario: 5.0,  status: 'cancelado'}
+    expect:
+      rows:
+        - {id_pedido: 1, valor_total: 20.0}
+
+  - name: valor_total_ignora_estornados
+    model: fct_pedidos
+    given:
+      - input: ref('stg_pedidos')
+        rows:
+          - {id_pedido: 1, quantidade: 2, preco_unitario: 10.0, status: 'pago'}
+          - {id_pedido: 6, quantidade: 1, preco_unitario: 89.9, status: 'estornado'}
     expect:
       rows:
         - {id_pedido: 1, valor_total: 20.0}

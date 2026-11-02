@@ -53,11 +53,19 @@ Cada branch guarda o estado do projeto **ao final** da aula. Para acompanhar uma
 
 ```text
 dataops-curso/
-├── .devcontainer/     ambiente do Codespaces
-├── data/              CSVs de origem
-├── src/               ingestão e transformações em Python
-├── models/            modelos dbt (staging e marts)
-├── docs/              régua de maturidade e documentação do time
+├── .devcontainer/          ambiente do Codespaces
+├── .github/
+│   ├── workflows/          ci.yml · cd.yml
+│   ├── pull_request_template.md
+│   └── CODEOWNERS
+├── data/                   CSVs de origem
+├── src/                    ingestao.py · transformacoes.py · pipeline.py
+├── tests/                  testes pytest e teste singular do dbt
+├── models/                 staging/ · marts/ (dbt)
+├── scripts/                deploy.sh · metricas_dora.py
+├── docs/                   maturidade · adr/ · runbooks/ · postmortems/
+├── .pre-commit-config.yaml
+├── .sqlfluff
 ├── dbt_project.yml
 ├── profiles.yml
 └── requirements.txt
