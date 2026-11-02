@@ -1,4 +1,5 @@
 """Camada fina de I/O: lê do banco, chama a transformação e grava o resultado."""
+
 from src.transformacoes import calcular_valor_total
 
 COLUNAS = ["id", "quantidade", "preco_unitario", "status"]
