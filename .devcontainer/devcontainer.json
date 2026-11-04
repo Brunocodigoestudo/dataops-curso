@@ -20,8 +20,7 @@
     "vscode": {
       "extensions": [
         "ms-python.python",
-        "charliermarsh.ruff",
-        "innoverio.vscode-dbt-power-user"
+        "charliermarsh.ruff"
       ]
     }
   }
