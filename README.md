@@ -4,6 +4,67 @@ Projeto prático do curso **Engenharia de Dados: DataOps, CI/CD e Liderança Té
 
 Ao longo das aulas, um pipeline de dados de uma loja (pedidos, clientes e produtos) sai do nível 1 de maturidade, com scripts que funcionam mas sem testes nem automação, e chega a um projeto com testes, CI/CD, padrões de código e métricas.
 
+## Comandos da Aula 5 · Mentoria e liderança técnica
+
+Roteiro da aula: copie um bloco de cada vez (botão de copiar no canto do bloco), cole no terminal do Codespace e confira o resultado.
+
+O vídeo 5.1 é só de slides, sem comandos.
+
+### 5.2 · Os quatro formatos de pair
+
+**1. Atualizar a main e criar a branch.**
+
+```bash
+git switch main
+git pull
+git switch -c docs/documentacao
+```
+
+**2. Trazer as descrições dos modelos.** A source, o staging e o mart, cada um com a sua descrição.
+
+```bash
+git checkout origin/aula-05-lideranca -- models/staging/_sources.yml models/staging/_staging.yml models/marts/_marts.yml
+code models/staging/_sources.yml
+code models/staging/_staging.yml
+code models/marts/_marts.yml
+```
+
+**3. Conferir que nada quebrou.**
+
+```bash
+dbt build
+```
+
+Resultado esperado: `PASS=11`.
+
+### 5.3 · Knowledge sharing
+
+**1. Gerar e abrir a documentação.** O primeiro comando gera o site da documentação. O segundo abre o site na porta 8080.
+
+```bash
+dbt docs generate
+dbt docs serve --no-browser
+```
+
+Clique em **Open in Browser** no aviso da porta 8080. Veja a descrição do `fct_pedidos` e o grafo de linhagem (botão azul no canto inferior direito). Para parar, volte ao terminal e aperte **Ctrl+C**.
+
+**2. Trazer o runbook e o README.**
+
+```bash
+git checkout origin/aula-05-lideranca -- docs/runbooks/pipeline-falhou.md README.md
+code docs/runbooks/pipeline-falhou.md
+```
+
+**3. Enviar para o GitHub.**
+
+```bash
+git add .
+git commit -m "docs: documentacao dos modelos e runbook de incidentes"
+git push -u origin docs/documentacao
+```
+
+**4. Merge e aprovação.** Abra o pull request, espere o check verde, faça o merge e aprove a produção em **Actions → Review deployments**.
+
 ## Como abrir o ambiente
 
 **Pelo navegador, sem instalar nada (recomendado):**
