@@ -70,11 +70,7 @@ dbt run
 
 Resultado esperado: `3`, `3` e `5` linhas carregadas, e `PASS=3` no dbt. O pipeline funciona.
 
-**6. Avaliar o projeto na régua.** Versionamento 2, testes 1, deploy 1, observabilidade 1 e colaboração 2.
-
-```bash
-code docs/maturidade.md
-```
+**6. Avaliar na régua.** A avaliação é feita nos slides da aula: volte para a apresentação.
 
 ## Como abrir o ambiente
 
@@ -107,7 +103,7 @@ Cada branch guarda o estado do projeto **ao final** da aula. Para acompanhar uma
 
 | Branch | Estado do projeto |
 | --- | --- |
-| `aula-01-inicio` | Scripts funcionando, sem testes e sem CI; régua de maturidade preenchida |
+| `aula-01-inicio` | Scripts funcionando, sem testes e sem CI |
 | `aula-02-testes` | Testes com pytest, testes de dados do dbt e cobertura |
 | `aula-03-ci-cd` | CI em todo pull request e deploy em staging e production com aprovação |
 | `aula-04-padroes` | pre-commit, template de pull request, CODEOWNERS e primeiro ADR |
@@ -122,7 +118,6 @@ dataops-curso/
 ├── data/              CSVs de origem
 ├── src/               ingestão e transformações em Python
 ├── models/            modelos dbt (staging e marts)
-├── docs/              régua de maturidade e documentação do time
 ├── dbt_project.yml
 ├── profiles.yml
 └── requirements.txt
