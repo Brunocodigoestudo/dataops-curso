@@ -4,6 +4,78 @@ Projeto prático do curso **Engenharia de Dados: DataOps, CI/CD e Liderança Té
 
 Ao longo das aulas, um pipeline de dados de uma loja (pedidos, clientes e produtos) sai do nível 1 de maturidade, com scripts que funcionam mas sem testes nem automação, e chega a um projeto com testes, CI/CD, padrões de código e métricas.
 
+## Comandos da Aula 1 · Princípios de DataOps
+
+Roteiro da aula: copie um bloco de cada vez (botão de copiar no canto do bloco), cole no terminal do Codespace e confira o resultado. O comando `code` abre o arquivo no editor.
+
+### 1.4 · O ambiente no Codespaces
+
+**1. Criar o ambiente.** No GitHub, escolha a branch `aula-01-inicio` e clique em **Code → Codespaces → Create codespace**. Espere o terminal aparecer.
+
+**2. Ver a receita do ambiente.** Mostra a imagem com Python 3.12, o comando que instala as dependências e a variável que faz o dbt achar o `profiles.yml`.
+
+```bash
+code .devcontainer/devcontainer.json
+```
+
+**3. Ver as versões fixadas.** Cada ferramenta tem a versão travada, para todo mundo ter o mesmo resultado.
+
+```bash
+code requirements.txt
+```
+
+**4. Conferir as versões instaladas.** Mostra a versão do Python e do dbt que o ambiente instalou.
+
+```bash
+python --version
+dbt --version
+```
+
+Resultado esperado: `Python 3.12` e `dbt 1.12.6`. Se aparecer um aviso de versão mais nova, tudo bem: a versão foi fixada de propósito.
+
+**5. Ao terminar de estudar.** Pare o codespace no menu **Codespaces → Stop**, para não gastar a cota gratuita.
+
+### 1.5 · Régua de maturidade
+
+**1. Ver a origem dos dados.** Três clientes, três produtos e cinco pedidos, com status pago, aberto e cancelado.
+
+```bash
+code data/pedidos.csv
+```
+
+**2. Ver a ingestão.** O script que lê cada CSV e grava na camada `raw` do DuckDB.
+
+```bash
+code src/ingestao.py
+```
+
+**3. Ver o staging.** Padroniza os dados: converte a data e deixa o status em minúsculo.
+
+```bash
+code models/staging/stg_pedidos.sql
+```
+
+**4. Ver a regra de negócio.** Valor total é quantidade vezes preço, e pedido cancelado não entra no faturamento.
+
+```bash
+code models/marts/fct_pedidos.sql
+```
+
+**5. Rodar o pipeline.** O primeiro comando carrega os CSVs no banco. O segundo constrói os modelos do dbt.
+
+```bash
+python -m src.ingestao
+dbt run
+```
+
+Resultado esperado: `3`, `3` e `5` linhas carregadas, e `PASS=3` no dbt. O pipeline funciona.
+
+**6. Avaliar o projeto na régua.** Versionamento 2, testes 1, deploy 1, observabilidade 1 e colaboração 2.
+
+```bash
+code docs/maturidade.md
+```
+
 ## Como abrir o ambiente
 
 **Pelo navegador, sem instalar nada (recomendado):**
