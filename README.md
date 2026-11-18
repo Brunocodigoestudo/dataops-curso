@@ -90,26 +90,27 @@ Com poucas semanas de histórico o número é pequeno. O que importa é acompanh
 
 ### 6.3 · Tempo de recuperação (MTTR)
 
-Sem comando novo: no mesmo `scripts/metricas_dora.py`, veja a função `recuperacao_horas`. Depois, no GitHub, abra a issue do estorno e compare com o tempo de recuperação que o script mostrou no terminal.
+**1. Ver a função do MTTR.** No mesmo `scripts/metricas_dora.py`, veja a função `recuperacao_horas`. Depois, no GitHub, abra a issue do estorno e compare com o tempo de recuperação que o script mostrou no terminal.
 
-### 6.4 · A régua, antes e depois
-
-**1. Trazer a régua preenchida e o README final.**
+**2. Trazer o README final.**
 
 ```bash
-git checkout origin/aula-06-metricas -- docs/maturidade.md README.md
-code docs/maturidade.md
+git checkout origin/aula-06-metricas -- README.md
 ```
 
-**2. Enviar para o GitHub.**
+**3. Enviar para o GitHub.**
 
 ```bash
 git add .
-git commit -m "feat: metricas DORA e regua refeita"
+git commit -m "feat: metricas DORA"
 git push -u origin metricas/dora
 ```
 
-**3. Publicar.** Pull request, check verde, merge e aprovação da produção.
+**4. Publicar.** Pull request, check verde, merge e aprovação da produção.
+
+### 6.4 · A régua, antes e depois
+
+Só slides, sem comandos.
 
 ## Como abrir o ambiente
 
@@ -141,7 +142,6 @@ dbt run                  # constrói os modelos
 - **Modelos e linhagem:** `dbt docs generate` e depois `dbt docs serve --no-browser`. No codespace, abra a porta 8080.
 - **Quando o pipeline falhar:** [docs/runbooks/pipeline-falhou.md](docs/runbooks/pipeline-falhou.md).
 - **Decisões técnicas:** [docs/adr/](docs/adr/).
-- **Maturidade do projeto:** [docs/maturidade.md](docs/maturidade.md).
 
 ## Uma branch por aula
 
@@ -149,7 +149,7 @@ Cada branch guarda o estado do projeto **ao final** da aula. Para acompanhar uma
 
 | Branch | Estado do projeto |
 | --- | --- |
-| `aula-01-inicio` | Scripts funcionando, sem testes e sem CI; régua de maturidade preenchida |
+| `aula-01-inicio` | Scripts funcionando, sem testes e sem CI |
 | `aula-02-testes` | Testes com pytest, testes de dados do dbt e cobertura |
 | `aula-03-ci-cd` | CI em todo pull request e deploy em staging e production com aprovação |
 | `aula-04-padroes` | pre-commit, template de pull request, CODEOWNERS e primeiro ADR |
@@ -170,7 +170,7 @@ dataops-curso/
 ├── tests/                  testes pytest e teste singular do dbt
 ├── models/                 staging/ · marts/ (dbt)
 ├── scripts/                deploy.sh · metricas_dora.py
-├── docs/                   maturidade · adr/ · runbooks/ · postmortems/
+├── docs/                   adr/ · runbooks/ · postmortems/
 ├── .pre-commit-config.yaml
 ├── .sqlfluff
 ├── dbt_project.yml
