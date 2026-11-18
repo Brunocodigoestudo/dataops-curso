@@ -34,7 +34,6 @@ dbt run                  # constrói os modelos
 - **Modelos e linhagem:** `dbt docs generate` e depois `dbt docs serve --no-browser`. No codespace, abra a porta 8080.
 - **Quando o pipeline falhar:** [docs/runbooks/pipeline-falhou.md](docs/runbooks/pipeline-falhou.md).
 - **Decisões técnicas:** [docs/adr/](docs/adr/).
-- **Maturidade do projeto:** [docs/maturidade.md](docs/maturidade.md).
 
 ## Uma branch por aula
 
@@ -42,7 +41,7 @@ Cada branch guarda o estado do projeto **ao final** da aula. Para acompanhar uma
 
 | Branch | Estado do projeto |
 | --- | --- |
-| `aula-01-inicio` | Scripts funcionando, sem testes e sem CI; régua de maturidade preenchida |
+| `aula-01-inicio` | Scripts funcionando, sem testes e sem CI |
 | `aula-02-testes` | Testes com pytest, testes de dados do dbt e cobertura |
 | `aula-03-ci-cd` | CI em todo pull request e deploy em staging e production com aprovação |
 | `aula-04-padroes` | pre-commit, template de pull request, CODEOWNERS e primeiro ADR |
@@ -63,7 +62,7 @@ dataops-curso/
 ├── tests/                  testes pytest e teste singular do dbt
 ├── models/                 staging/ · marts/ (dbt)
 ├── scripts/                deploy.sh · metricas_dora.py
-├── docs/                   maturidade · adr/ · runbooks/ · postmortems/
+├── docs/                   adr/ · runbooks/ · postmortems/
 ├── .pre-commit-config.yaml
 ├── .sqlfluff
 ├── dbt_project.yml
